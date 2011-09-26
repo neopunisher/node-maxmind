@@ -7,8 +7,7 @@ var csv = require('csv'),
 
 //http://geoip3.maxmind.com/f?l=xxxxxxx&i=64.233.183.104
 
-//exports.lookup = function (ip,cb){
-function geo(ip,cb){
+exports.lookup = function (ip,cb){
 request({uri: url}, function (error, response, body){
 csv().from(body,{columns: ['country', 'region', 'city', 'postal', 'lat', 'lon', 'metro_code', 'area_code', 'isp', 'org', 'err']})
 .on('data',function(data,index){
